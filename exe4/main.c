@@ -38,7 +38,7 @@ bool timer_callback(repeating_timer_t *rt) {
     int zona = 0;
     int led_state = 0;
     int timer_on = 0;
-    int timer_ms = 0;
+    int timer_ms;
     repeating_timer_t timer;
 
     while (1) {
