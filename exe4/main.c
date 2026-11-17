@@ -38,13 +38,13 @@ bool timer_callback(repeating_timer_t *rt) {
     int zona = 0;
     int led_state = 0;
     int timer_on = 0;
+    int timer_ms = 0;
     repeating_timer_t timer;
 
     while (1) {
         uint16_t result = adc_read();
         float tensao = result * conversion_factor;
         int nova_zona = 0;
-        int timer_ms = 0;
         
         if (tensao < 1) {
             nova_zona = 0;

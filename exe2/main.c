@@ -17,9 +17,9 @@ void adc_task(void *p) {
     // 12-bit conversion, assume max value == ADC_VREF == 3.3 V
     const float conversion_factor = 3.3f / (1 << 12);
 
-    uint16_t result;
-    uint16_t result_2;
     while (1) {
+        uint16_t result;
+        uint16_t result_2;
         adc_select_input(1); // Select ADC input 1 (GPIO27)
         result = adc_read();
         printf("voltage 1: %f V\n", result * conversion_factor);
