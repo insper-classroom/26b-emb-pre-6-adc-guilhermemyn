@@ -53,7 +53,6 @@
         uint16_t result = adc_read();
         float tensao = result * conversion_factor;
         int nova_zona;
-        int timer_ms;
 
         nova_zona = zone_calculator(tensao);
 
@@ -67,13 +66,11 @@
                 led_state = 0;
                 flag_timer = 0;
             } else if (nova_zona == 1) {
-                timer_ms = 300;
-                if (add_repeating_timer_ms(timer_ms, timer_callback, NULL, &timer)) {
+                if (add_repeating_timer_ms(300, timer_callback, NULL, &timer)) {
                     timer_on = 1;
                 }
             } else {
-                timer_ms = 500;
-                if (add_repeating_timer_ms(timer_ms, timer_callback, NULL, &timer)) {
+                if (add_repeating_timer_ms(500, timer_callback, NULL, &timer)) {
                     timer_on = 1;
                 }            
             }
